@@ -1,0 +1,1445 @@
+/*=========================================
+    JAZZ CLASSICS
+    Diego Nascimento
+==========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+    background:#080808;
+    color:#f5f5f5;
+    overflow-x:hidden;
+    line-height:1.6;
+
+}
+
+/*=========================================
+            BACKGROUND
+==========================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,.82),
+    rgba(0,0,0,.92)),
+    url("../images/jazz-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    z-index:-3;
+
+}
+
+/*=========================================
+            REFLETORES
+==========================================*/
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:900px;
+    height:900px;
+
+    left:-250px;
+    top:-250px;
+
+    background:
+    radial-gradient(circle,
+    rgba(214,176,106,.22),
+    transparent 70%);
+
+    filter:blur(40px);
+
+    animation:spotlight 10s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+@keyframes spotlight{
+
+    from{
+
+        transform:
+        translateX(0)
+        translateY(0);
+
+    }
+
+    to{
+
+        transform:
+        translateX(250px)
+        translateY(150px);
+
+    }
+
+}
+
+/*=========================================
+                FUMAÇA
+==========================================*/
+
+.smoke{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at 30% 20%,
+    rgba(255,255,255,.04),
+    transparent 40%),
+
+    radial-gradient(circle at 80% 60%,
+    rgba(255,255,255,.03),
+    transparent 35%),
+
+    radial-gradient(circle at 50% 90%,
+    rgba(255,255,255,.03),
+    transparent 40%);
+
+    animation:smoke 25s linear infinite;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+@keyframes smoke{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-80px);
+
+    }
+
+}
+
+/*=========================================
+            HEADER
+==========================================*/
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 8%;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(0,0,0,.45);
+
+    border-bottom:1px solid rgba(214,176,106,.15);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#fff;
+
+    letter-spacing:2px;
+
+}
+
+.logo span{
+
+    color:#d6b06a;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+}
+
+nav a:hover{
+
+    color:#d6b06a;
+
+}
+
+/*=========================================
+            HERO
+==========================================*/
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:120px 8% 70px;
+
+}
+
+.hero-text{
+
+    flex:1;
+
+}
+
+.hero-text h3{
+
+    color:#d6b06a;
+
+    font-weight:400;
+
+    letter-spacing:6px;
+
+    margin-bottom:20px;
+
+}
+
+.hero-text h1{
+
+    font-size:80px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    line-height:.95;
+
+    margin-bottom:20px;
+
+}
+
+.hero-text h2{
+
+    font-weight:300;
+
+    margin-bottom:25px;
+
+    color:#ddd;
+
+}
+
+.hero-text p{
+
+    max-width:560px;
+
+    color:#bbbbbb;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+}
+
+/*=========================================
+            BOTÃO
+==========================================*/
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 45px;
+
+    background:#d6b06a;
+
+    color:#000;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 0 35px rgba(214,176,106,.5);
+
+}
+
+/*=========================================
+            CAPA
+==========================================*/
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-image img{
+
+    width:420px;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.7),
+
+    0 0 45px rgba(214,176,106,.35);
+
+    animation:album 5s ease-in-out infinite;
+
+    transition:.4s;
+
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.03);
+
+}
+
+@keyframes album{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        TITULOS DAS SEÇÕES
+==========================================*/
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+    font-size:50px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    margin-bottom:12px;
+
+}
+
+.line{
+
+    width:120px;
+
+    height:3px;
+
+    background:#d6b06a;
+
+    margin:auto;
+
+    border-radius:20px;
+
+}
+
+/*=========================================
+        SEÇÕES
+==========================================*/
+
+section{
+
+    padding:110px 8%;
+
+}
+
+/*=========================================
+        SCROLLBAR
+==========================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d6b06a;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#f2d29a;
+
+}
+
+/*=========================================
+            ÁLBUM
+==========================================*/
+
+.album-content{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+
+}
+
+.album-content img{
+
+    width:380px;
+    border-radius:18px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.7),
+    0 0 25px rgba(214,176,106,.25);
+
+}
+
+.album-content div{
+
+    max-width:600px;
+
+}
+
+.album-content p{
+
+    margin-bottom:20px;
+
+    color:#cfcfcf;
+
+    font-size:18px;
+
+}
+
+/*=========================================
+            PLAYER
+==========================================*/
+
+.player-section{
+
+    background:#111;
+
+}
+
+.music-player{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(214,176,106,.2);
+
+}
+
+.music-player img{
+
+    width:280px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.6);
+
+}
+
+.music-info{
+
+    flex:1;
+
+}
+
+.music-info h3{
+
+    font-size:38px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    margin-bottom:10px;
+
+}
+
+.music-info p{
+
+    color:#d6b06a;
+
+    margin-bottom:30px;
+
+}
+
+.progress-container{
+
+    width:100%;
+
+    height:8px;
+
+    background:#333;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+.progress{
+
+    width:0;
+
+    height:100%;
+
+    background:#d6b06a;
+
+    transition:.2s;
+
+}
+
+.time{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:12px 0 35px;
+
+    color:#aaa;
+
+    font-size:14px;
+
+}
+
+.controls{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+.controls button{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#1d1d1d;
+
+    color:#d6b06a;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.controls button:hover{
+
+    background:#d6b06a;
+
+    color:#000;
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+            PLAYLIST
+==========================================*/
+
+.songs{
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+.song{
+
+    display:grid;
+
+    grid-template-columns:70px 1fr 90px;
+
+    align-items:center;
+
+    padding:22px 25px;
+
+    margin-bottom:18px;
+
+    border-radius:15px;
+
+    background:#111;
+
+    border:1px solid #222;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.song:hover{
+
+    background:#1a1a1a;
+
+    border-color:#d6b06a;
+
+    transform:translateX(8px);
+
+}
+
+.song.active{
+
+    background:#d6b06a;
+
+    color:#000;
+
+}
+
+.song.active h3{
+
+    color:#000;
+
+}
+
+.song h3{
+
+    font-weight:500;
+
+    color:#fff;
+
+}
+
+.song span{
+
+    font-size:15px;
+
+}
+
+/*=========================================
+            GALERIA
+==========================================*/
+
+.gallery{
+
+    background:#111;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.5);
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+
+    0 0 30px rgba(214,176,106,.45);
+
+}
+
+/*=========================================
+            SOBRE
+==========================================*/
+
+.about-content{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.about-content p{
+
+    font-size:18px;
+
+    color:#d5d5d5;
+
+    margin-bottom:25px;
+
+}
+
+/*=========================================
+            FOOTER
+==========================================*/
+
+footer{
+
+    background:#050505;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(214,176,106,.2);
+
+}
+
+footer h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    color:#999;
+
+}
+
+.social{
+
+    margin:30px 0;
+
+}
+
+.social a{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:55px;
+
+    height:55px;
+
+    margin:0 10px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    color:#d6b06a;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    transition:.35s;
+
+}
+
+.social a:hover{
+
+    background:#d6b06a;
+
+    color:#000;
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 0 20px rgba(214,176,106,.5);
+
+}
+
+/*==================================================
+                ANIMAÇÕES GERAIS
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-text,
+.hero-image,
+.album,
+.player-section,
+.playlist,
+.gallery,
+.about{
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+/*==================================================
+                REFLETORES
+==================================================*/
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:-250px;
+    top:-200px;
+
+    background:
+    radial-gradient(circle,
+    rgba(214,176,106,.18),
+    transparent 70%);
+
+    filter:blur(30px);
+
+    animation:lightOne 9s infinite alternate;
+
+    z-index:-1;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    right:-250px;
+    top:-150px;
+
+    background:
+    radial-gradient(circle,
+    rgba(214,176,106,.15),
+    transparent 70%);
+
+    filter:blur(35px);
+
+    animation:lightTwo 10s infinite alternate;
+
+    z-index:-1;
+
+}
+
+@keyframes lightOne{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(180px);
+
+    }
+
+}
+
+@keyframes lightTwo{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-180px);
+
+    }
+
+}
+
+/*==================================================
+            PARTÍCULAS DOURADAS
+==================================================*/
+
+body{
+
+    position:relative;
+
+}
+
+body::before{
+
+    animation:goldParticles 18s linear infinite;
+
+}
+
+@keyframes goldParticles{
+
+    0%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:brightness(1.15);
+
+    }
+
+    100%{
+
+        filter:brightness(1);
+
+    }
+
+}
+
+/*==================================================
+                VINIL GIRANDO
+==================================================*/
+
+.vinyl{
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#111 20%,#000 22%,#222 40%,#000 42%,#111);
+
+    border:8px solid #1d1d1d;
+
+    animation:spin 4s linear infinite;
+
+    margin:auto;
+
+}
+
+.paused{
+
+    animation-play-state:paused;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*==================================================
+            EQUALIZADOR
+==================================================*/
+
+.equalizer{
+
+    display:flex;
+
+    gap:5px;
+
+    align-items:flex-end;
+
+    height:45px;
+
+}
+
+.equalizer span{
+
+    width:5px;
+
+    background:#d6b06a;
+
+    border-radius:30px;
+
+    animation:eq .9s infinite;
+
+}
+
+.equalizer span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.equalizer span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+.equalizer span:nth-child(4){
+
+    animation-delay:.6s;
+
+}
+
+.equalizer span:nth-child(5){
+
+    animation-delay:.8s;
+
+}
+
+@keyframes eq{
+
+    0%{
+
+        height:10px;
+
+    }
+
+    50%{
+
+        height:42px;
+
+    }
+
+    100%{
+
+        height:15px;
+
+    }
+
+}
+
+/*==================================================
+                HOVER PREMIUM
+==================================================*/
+
+button,
+.btn,
+.song,
+.gallery-grid img,
+.social a{
+
+    transition:.35s ease;
+
+}
+
+.song:hover{
+
+    box-shadow:
+
+    0 10px 30px rgba(214,176,106,.15);
+
+}
+
+.gallery-grid img:hover{
+
+    filter:brightness(1.05);
+
+}
+
+.hero-image img:hover{
+
+    box-shadow:
+
+    0 0 45px rgba(214,176,106,.45),
+
+    0 25px 60px rgba(0,0,0,.7);
+
+}
+
+/*==================================================
+            RESPONSIVO TABLET
+==================================================*/
+
+@media(max-width:992px){
+
+header{
+
+    padding:18px 5%;
+
+}
+
+.hero{
+
+    flex-direction:column-reverse;
+
+    text-align:center;
+
+}
+
+.hero-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.hero-text h1{
+
+    font-size:60px;
+
+}
+
+.hero-image img{
+
+    width:340px;
+
+}
+
+.album-content{
+
+    flex-direction:column;
+
+}
+
+.music-player{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.controls{
+
+    justify-content:center;
+
+}
+
+}
+
+/*==================================================
+            RESPONSIVO CELULAR
+==================================================*/
+
+@media(max-width:768px){
+
+nav{
+
+    display:none;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.hero{
+
+    padding-top:140px;
+
+}
+
+.hero-text h1{
+
+    font-size:48px;
+
+}
+
+.hero-text h2{
+
+    font-size:24px;
+
+}
+
+.hero-text p{
+
+    font-size:16px;
+
+}
+
+.hero-image img{
+
+    width:270px;
+
+}
+
+.music-player{
+
+    padding:25px;
+
+}
+
+.music-player img{
+
+    width:220px;
+
+}
+
+.music-info h3{
+
+    font-size:28px;
+
+}
+
+.controls button{
+
+    width:50px;
+
+    height:50px;
+
+}
+
+.song{
+
+    grid-template-columns:45px 1fr 65px;
+
+    padding:18px;
+
+}
+
+.song h3{
+
+    font-size:16px;
+
+}
+
+.gallery-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.gallery-grid img{
+
+    height:240px;
+
+}
+
+.section-title h2{
+
+    font-size:38px;
+
+}
+
+footer h2{
+
+    font-size:32px;
+
+}
+
+}
+
+/*==================================================
+            CELULARES PEQUENOS
+==================================================*/
+
+@media(max-width:480px){
+
+.hero-text h1{
+
+    font-size:38px;
+
+}
+
+.hero-image img{
+
+    width:220px;
+
+}
+
+.btn{
+
+    padding:14px 28px;
+
+}
+
+.song{
+
+    gap:10px;
+
+}
+
+.controls{
+
+    gap:12px;
+
+}
+
+.social a{
+
+    width:45px;
+
+    height:45px;
+
+}
+
+}
+
+/*==================================================
+            SELEÇÃO DE TEXTO
+==================================================*/
+
+::selection{
+
+    background:#d6b06a;
+
+    color:#000;
+
+}
+
+/*==================================================
+            FIM DO CSS
+==================================================*/
