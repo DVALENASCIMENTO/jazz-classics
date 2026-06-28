@@ -28,63 +28,59 @@ const songs = document.querySelectorAll(".song");
 const playlist = [
 
 {
-
 title:"Fly Me To The Moon",
-
 artist:"Diego Nascimento",
-
 cover:"images/CapaJazzClassics.jpeg",
-
-src:"music/musica01.mp3"
-
+src:"music/Fly Me To The Moon.mp3"
 },
 
 {
-
-title:"Autumn Leaves",
-
+title:"Somewhere Over The Rainbow",
 artist:"Diego Nascimento",
-
 cover:"images/CapaJazzClassics.jpeg",
-
-src:"music/musica02.mp3"
-
+src:"music/Somewhere Over.mp3"
 },
 
 {
-
-title:"Misty",
-
+title:"La Mer",
 artist:"Diego Nascimento",
-
 cover:"images/CapaJazzClassics.jpeg",
-
-src:"music/musica03.mp3"
-
+src:"music/Beyond The Sea.mp3"
 },
 
 {
-
-title:"My Funny Valentine",
-
+title:"Perfídia",
 artist:"Diego Nascimento",
-
 cover:"images/CapaJazzClassics.jpeg",
-
-src:"music/musica04.mp3"
-
+src:"music/Perfidia.mp3"
 },
 
 {
-
-title:"Smile",
-
+title:"It´s My life",
 artist:"Diego Nascimento",
-
 cover:"images/CapaJazzClassics.jpeg",
+src:"music/Its My Life.mp3"
+},
 
-src:"music/musica05.mp3"
+{
+title:"Let Me Try Again",
+artist:"Diego Nascimento",
+cover:"images/CapaJazzClassics.jpeg",
+src:"music/Let Me Try Again.mp3"
+},
 
+{
+title:"My Way",
+artist:"Diego Nascimento",
+cover:"images/CapaJazzClassics.jpeg",
+src:"music/My Way.mp3"
+},
+
+{
+title:"New York, New York",
+artist:"Diego Nascimento",
+cover:"images/CapaJazzClassics.jpeg",
+src:"music/New York.mp3"
 }
 
 ];
